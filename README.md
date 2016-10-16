@@ -1,6 +1,10 @@
-# What Tools
-A collection of tools that coordinate data and media as well as notify users
+# Seed Project
 
-## Install
-`make install`
+## commands
+### build UI
+### start Server
 
+## Technologies
+### Express
+### ng 1.x
+### node 6.x
