@@ -1,4 +1,4 @@
-# Seed Project
+## My weddings website
 
 ## commands
 ### build UI
