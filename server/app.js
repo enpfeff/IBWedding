@@ -1,7 +1,6 @@
 /**
  * @since 8/11/16
  * @author Ian Pfeffer
- * @copyright Copyright (c) 2016 NETSCOUT
  */
 "use strict";
 
@@ -14,6 +13,7 @@ const https = require('https');
 const constantService = require('./lib/constant/constant.service');
 const UTF8 = 'utf-8';
 const log = require('./lib/log/log');
+const mongo = require('./lib/mongoose/mongo');
 
 let dieing = false;
 const app = expressConfig();
@@ -23,12 +23,15 @@ process.on('SIGINT', kill);
 
 // constants are now populated
 const c = constantService();
-createBanner(c);
 
 // connect to mongo and reference the server object for killing
 let server;
-server = createServer(c);
-server = server.listen(c.PORT);
+
+return mongo().then(() => {
+    createBanner(c);
+    server = createServer(c);
+    server = server.listen(c.PORT);
+});
 
 
 function kill() {

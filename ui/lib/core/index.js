@@ -2,14 +2,18 @@
  * @module what-tools
  * @since 10/16/16
  * @author Ian Pfeffer
- * @copyright Copyright (c) 2016 NETSCOUT
  */
 "use strict";
+require('./app.scss');
+require('./app.html');
 
-const angular = require('angular');
-const _ = require('lodash');
+const requires = [
+    'ui.router',
+    'ui.router.stateHelper',
+    require('./public').name,
+    require('./auth').name
+];
 
-const requires = [];
-
-module.exports = angular.module('App', requires)
+module.exports = angular.module('App.Core', requires)
+    .config(require('./app.routes'))
     .controller('AppController', require('./app.controller'));

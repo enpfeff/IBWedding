@@ -2,21 +2,34 @@
  * @module what-tools
  * @since 10/16/16
  * @author Ian Pfeffer
- * @copyright Copyright (c) 2016 NETSCOUT
  */
 "use strict";
-const angular = require('angular');
 
-const requires = [
-    require('./lib/core').name
+const angular = require('angular');
+const uiRouter = require('angular-ui-router');
+const uiRouterHelper = require('angular-ui-router.statehelper');
+const ngAria = require('angular-aria');
+const ngAnimate = require('angular-animate');
+const ngMaterial = require('angular-material');
+
+const vendor = [
+    'ui.router',
+    'ui.router.stateHelper',
+    'ngMaterial',
+    'ngAria',
+    'ngAnimate'
 ];
 
-//
-//  Bootstrap to the Page
-//
-angular.element(document).ready(() => {
-    angular.bootstrap(document, ['App'], {strictDi: true});
-});
+const modules = [
+    require('./lib/core'),
+    require('./lib/home')
+];
 
-module.exports = angular
-    .module('App', requires);
+const app = angular.module('App', _.union(_.map(modules, 'name'), vendor));
+
+angular.element(document).ready(bootstrap);
+module.exports = app;
+
+function bootstrap() {
+    angular.bootstrap(document, ['App'], {strictDi: true});
+}

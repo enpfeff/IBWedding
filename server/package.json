@@ -1,15 +1,26 @@
 {
-  "name": "what-tools-server",
+  "name": "IBWedding-server",
   "version": "0.0.1",
   "dependencies": {
-    "chalk": "^1.1.3",
-    "ejs": "^2.5.2",
-    "winston": "^2.2.0",
+    "bcrypt-as-promised": "^1.1.0",
+    "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
+    "chalk": "^1.1.3",
     "compression": "^1.6.2",
+    "ejs": "^2.5.2",
     "express": "^4.14.0",
     "express-promise-router": "^1.1.1",
+    "jsonwebtoken": "^7.1.9",
     "lodash": "^4.16.4",
-    "morgan": "^1.7.0"
+    "moment": "^2.15.2",
+    "mongoose": "^4.6.4",
+    "morgan": "^1.7.0",
+    "node-uuid": "^1.4.7",
+    "redis": "^2.6.2",
+    "redis-commands": "^1.3.0",
+    "sprintf": "^0.1.5",
+    "then-redis": "^2.0.1",
+    "uuid": "^2.0.3",
+    "winston": "^2.2.0"
   }
 }

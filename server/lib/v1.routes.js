@@ -2,7 +2,6 @@
  * @module what-tools
  * @since 10/16/16
  * @author Ian Pfeffer
- * @copyright Copyright (c) 2016 NETSCOUT
  */
 "use strict";
 
@@ -13,7 +12,9 @@ function init() {
     let v1Router = PromiseRouter();
     let libRouter = PromiseRouter();
 
+
     libRouter.use('/version', require('./version/version.routes'));
+    libRouter.use('/user', require('./user/user.routes'));
 
     v1Router.use(libRouter);
     v1Router.use('*', (req, res) => {

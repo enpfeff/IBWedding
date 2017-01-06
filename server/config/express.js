@@ -2,7 +2,6 @@
  * @module what-tools
  * @since 10/16/16
  * @author Ian Pfeffer
- * @copyright Copyright (c) 2016 NETSCOUT
  */
 "use strict";
 
@@ -21,14 +20,15 @@ function init() {
 
     // determine which state to load the ipm-bind-service in
     const NODE_ENV = determineNodeEnv();
-    constantService.init();
+    const C = constantService.init();
     constantService.add({NODE_ENV});
 
     app.use(logger('dev'));
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
 
     // things that apply to all routes
-    if (constantService.COMPRESSION_ENABLED) app.use(compression());
+    if (C.COMPRESSION_ENABLED) app.use(compression());
     app.use(allowCrossDomain);
     app.use(noCache);
 

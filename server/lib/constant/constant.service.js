@@ -2,7 +2,6 @@
  * @module what-tools
  * @since 10/16/16
  * @author Ian Pfeffer
- * @copyright Copyright (c) 2016 NETSCOUT
  */
 "use strict";
 
@@ -18,10 +17,15 @@ function add(...optionsArgs) {
 function init() {
     // inject known files
     const CONSTANTS = [
-        require('../../config/express.constants')
+        require('../../config/express.constants'),
+        require('../mongoose/mongo.constants'),
+        require('../authentication/authentication.constants'),
+        require('../redis/redis.constants')
     ];
 
     add(...CONSTANTS);
+
+    return constants;
 }
 
 const isDevelopment = () => constants.NODE_ENV === 'development';
